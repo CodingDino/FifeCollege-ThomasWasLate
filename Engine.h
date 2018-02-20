@@ -31,9 +31,9 @@ private:
 	View m_RightView;
 
 	// Three views for the background
-	View m_BGMainBackground;
-	View m_BGLeftBackground;
-	View m_BGRightBackground;
+	View m_BGMainView;
+	View m_BGLeftView;
+	View m_BGRightView;
 
 	View m_HudView;
 
@@ -54,7 +54,7 @@ private:
 
 	// How much time is left in the current level?
 	float m_TimeRemaining = 10;
-	float m_GameTimeTotal;
+	Time m_GameTimeTotal;
 
 	// Is it time for a new/first level?
 	bool m_NewLevelRequired = true;
