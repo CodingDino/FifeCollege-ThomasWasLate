@@ -43,7 +43,7 @@ void Engine::run()
 
 		// Call each part of the game loop in turn
 		input();
-		//update(dtAsSeconds);
+		update(dtAsSeconds);
 		//draw();
 	}
 }
