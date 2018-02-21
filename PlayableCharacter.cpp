@@ -23,7 +23,7 @@ void PlayableCharacter::update(float elapsedTime)
 	}
 	if (m_LeftPressed)
 	{
-		m_Position.x += m_Speed * elapsedTime;
+		m_Position.x -= m_Speed * elapsedTime;
 	}
 
 	// Handle jumping
