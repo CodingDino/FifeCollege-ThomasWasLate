@@ -9,7 +9,7 @@ class PlayableCharacter
 {
 	// Remember: protected means our sub classes will have full access to these data members.
 protected:
-	Sprite m_sprite;
+	Sprite m_Sprite;
 
 	// How long does our jump last?
 	float m_JumpDuration;
