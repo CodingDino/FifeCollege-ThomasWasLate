@@ -52,6 +52,7 @@ private:
 
 	// Remember: public means both our sub classes and other classes 
 	//			 and code will have access to these functions.
+	// NOTE: Only functions marked as "virtual" can be overridden in sub classes.
 public:
 
 	void spawn(Vector2f startPosition, float gravity);
