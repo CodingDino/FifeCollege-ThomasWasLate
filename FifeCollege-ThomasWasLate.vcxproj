@@ -157,6 +157,7 @@
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="TextureHolder.h" />
+    <ClInclude Include="Thomas.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Draw.cpp" />
@@ -171,6 +172,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="TextureHolder.cpp" />
+    <ClCompile Include="Thomas.cpp" />
     <ClCompile Include="Update.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
