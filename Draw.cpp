@@ -32,4 +32,10 @@ void Engine::draw()
 		// switch to main view
 		m_Window.setView(m_RightView);
 	}
+
+	// Draw the HUD
+	m_Window.setView(m_HudView);
+
+	// Show everything we have just drawn
+	m_Window.display();
 }
