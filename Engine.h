@@ -2,6 +2,8 @@
 
 #include <SFML\Graphics.hpp>
 #include "TextureHolder.h"
+#include "Thomas.h"
+#include "Bob.h"
 
 // SARAH'S NOTE: AVOID! Don't use "using" in .h files 
 //     - it pollutes the global namespace across your files!
@@ -15,6 +17,10 @@ private:
 	//    - just use the full words, not single letters!
 	//    this issue is present throughout this file :(
 	TextureHolder th;
+
+	// Thomas and his friend Bob
+	Thomas m_Thomas;
+	Bob m_Bob;
 
 	// constants used for our levels
 	const int TILE_SIZE = 50;
