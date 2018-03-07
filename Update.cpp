@@ -9,15 +9,7 @@ void Engine::update(float dtAsSeconds)
 {
 	if (m_NewLevelRequired)
 	{
-		// These calls to spawn will be moved to a new
-		// loadLevel() function soon
-		// Spawn Thomas and Bob
-		m_Thomas.spawn(Vector2f(0, 0), GRAVITY);
-		m_Bob.spawn(Vector2f(100, 0), GRAVITY);
-
-		// Make sure spawn is called only once
-		m_TimeRemaining = 10;
-		m_NewLevelRequired = false;
+		loadLevel();
 	}
 
 	if (m_Playing)
@@ -27,6 +19,27 @@ void Engine::update(float dtAsSeconds)
 
 		// Update Bon
 		m_Bob.update(dtAsSeconds);
+
+		// Detect collisions and see if characters
+		// have reached the goal tile
+		bool thomasAtGoal = detectCollisions(m_Thomas);
+		bool bobAtGoal = detectCollisions(m_Bob);
+		if (thomasAtGoal && bobAtGoal)
+		{
+			// New level required
+			m_NewLevelRequired = true;
+			// TODO: Play the reach goal sound
+		}
+
+		// Let bob and thomas jump on each other's heads
+		if (m_Bob.getFeet().intersects(m_Thomas.getHead()))
+		{
+			m_Bob.stopFalling(m_Thomas.getHead().top);
+		}
+		else if (m_Thomas.getFeet().intersects(m_Bob.getHead()))
+		{
+			m_Thomas.stopFalling(m_Bob.getHead().top);
+		}
 
 		// Count down the time the player has left
 		m_TimeRemaining -= dtAsSeconds;

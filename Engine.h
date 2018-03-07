@@ -4,6 +4,7 @@
 #include "TextureHolder.h"
 #include "Thomas.h"
 #include "Bob.h"
+#include "LevelManager.h"
 
 // SARAH'S NOTE: AVOID! Don't use "using" in .h files 
 //     - it pollutes the global namespace across your files!
@@ -21,6 +22,10 @@ private:
 	// Thomas and his friend Bob
 	Thomas m_Thomas;
 	Bob m_Bob;
+
+	// A class to manage all the levels
+	// SH: DON'T USE SINGLE LETTER NAMES!
+	LevelManager m_LM;
 
 	// constants used for our levels
 	const int TILE_SIZE = 50;
@@ -65,11 +70,25 @@ private:
 	// Is it time for a new/first level?
 	bool m_NewLevelRequired = true;
 
+	// The Vertex Array for the level tiles
+	VertexArray m_VALevel;
+	// The 2D array with the map for the level
+	// a pointer to a pointer (2d array)
+	int** m_ArrayLevel = nullptr;
+	// Texture for the level tiles
+	Texture m_TextureTiles;
+
 	// Private functions for internal use only:
 private:
 	void input();
 	void update(float dtAsSeconds);
 	void draw();
+
+	// Load a new level
+	void loadLevel();
+
+	// Polymorphic function to detect collisions
+	bool detectCollisions(PlayableCharacter& character);
 
 public:
 	// The Engine Constructor

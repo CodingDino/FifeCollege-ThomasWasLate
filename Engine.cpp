@@ -26,6 +26,9 @@ Engine::Engine()
 	// background setup
 	m_BackgroundTexture = TextureHolder::GetTexture("graphics/background.png");
 	m_BackgroundSprite.setTexture(m_BackgroundTexture);
+
+	// Load texture for the level vertex array
+	m_TextureTiles = TextureHolder::GetTexture("graphics/tiles_sheet.png");
 }
 
 void Engine::run()
