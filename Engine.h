@@ -7,6 +7,8 @@
 #include "LevelManager.h"
 #include "SoundManager.h"
 #include "HUD.h"
+#include "ParticleSystem.h"
+
 
 // SARAH'S NOTE: AVOID! Don't use "using" in .h files 
 //     - it pollutes the global namespace across your files!
@@ -20,6 +22,10 @@ private:
 	//    - just use the full words, not single letters!
 	//    this issue is present throughout this file :(
 	TextureHolder th;
+
+	// Create a particle system
+	// SH: DON'T USE SINGLE LETTER NAMES!
+	ParticleSystem m_PS;
 
 	// Thomas and his friend Bob
 	Thomas m_Thomas;

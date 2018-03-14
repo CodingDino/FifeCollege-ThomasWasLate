@@ -29,6 +29,9 @@ Engine::Engine()
 
 	// Load texture for the level vertex array
 	m_TextureTiles = TextureHolder::GetTexture("graphics/tiles_sheet.png");
+
+	// Initialise the particle system
+	m_PS.init(1000);
 }
 
 void Engine::run()

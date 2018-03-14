@@ -22,6 +22,12 @@ void Engine::draw()
 		// Draw Thomas & Bob
 		m_Window.draw(m_Thomas.getSprite());
 		m_Window.draw(m_Bob.getSprite());
+
+		// Draw the particle system
+		if (m_PS.running())
+		{
+			m_Window.draw(m_PS);
+		}
 	}
 	else // Split Screen view
 	{
@@ -36,6 +42,11 @@ void Engine::draw()
 		// Draw Thomas & Bob
 		m_Window.draw(m_Thomas.getSprite());
 		m_Window.draw(m_Bob.getSprite());
+		// Draw the particle system
+		if (m_PS.running())
+		{
+			m_Window.draw(m_PS);
+		}
 
 		// Draw Bob's side
 		//background
@@ -48,6 +59,11 @@ void Engine::draw()
 		// Draw Thomas & Bob
 		m_Window.draw(m_Thomas.getSprite());
 		m_Window.draw(m_Bob.getSprite());
+		// Draw the particle system
+		if (m_PS.running())
+		{
+			m_Window.draw(m_PS);
+		}
 	}
 
 	// Draw the HUD
