@@ -5,6 +5,7 @@
 #include "Thomas.h"
 #include "Bob.h"
 #include "LevelManager.h"
+#include "SoundManager.h"
 
 // SARAH'S NOTE: AVOID! Don't use "using" in .h files 
 //     - it pollutes the global namespace across your files!
@@ -26,6 +27,10 @@ private:
 	// A class to manage all the levels
 	// SH: DON'T USE SINGLE LETTER NAMES!
 	LevelManager m_LM;
+
+	// A class to play sounds
+	// SH: DON'T USE SINGLE LETTER NAMES!
+	SoundManager m_SM;
 
 	// constants used for our levels
 	const int TILE_SIZE = 50;
@@ -78,6 +83,9 @@ private:
 	// Texture for the level tiles
 	Texture m_TextureTiles;
 
+	// A vector of Vector2f for the fire emitter locations
+	vector <Vector2f> m_FireEmitters;
+
 	// Private functions for internal use only:
 private:
 	void input();
@@ -89,6 +97,9 @@ private:
 
 	// Polymorphic function to detect collisions
 	bool detectCollisions(PlayableCharacter& character);
+
+	// Make a vector of the best places to emit sounds from
+	void populateEmitters(vector <Vector2f>& vSoundEmitters, int** arrayLevel);
 
 public:
 	// The Engine Constructor
