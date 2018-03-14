@@ -6,12 +6,15 @@ void Engine::draw()
 	// Rub out the last frame
 	m_Window.clear(Color::White);
 
+	// Update the shader parameters
+	m_RippleShader.setUniform("uTime", m_GameTimeTotal.asSeconds());
+
 	// Full Screen mode
 	if (!m_SplitScreen)
 	{
 		// draw background
 		m_Window.setView(m_BGMainView);
-		m_Window.draw(m_BackgroundSprite);
+		m_Window.draw(m_BackgroundSprite, &m_RippleShader);
 
 		// switch to main view
 		m_Window.setView(m_MainView);
@@ -34,7 +37,7 @@ void Engine::draw()
 		// Draw Thomas' side first
 		//background
 		m_Window.setView(m_BGLeftView);
-		m_Window.draw(m_BackgroundSprite);
+		m_Window.draw(m_BackgroundSprite, &m_RippleShader);
 		// switch to main view
 		m_Window.setView(m_LeftView);
 		// Draw the level
@@ -51,7 +54,7 @@ void Engine::draw()
 		// Draw Bob's side
 		//background
 		m_Window.setView(m_BGRightView);
-		m_Window.draw(m_BackgroundSprite);
+		m_Window.draw(m_BackgroundSprite, &m_RippleShader);
 		// switch to main view
 		m_Window.setView(m_RightView);
 		// Draw the level

@@ -24,6 +24,17 @@ Engine::Engine()
 	m_BGRightView.setViewport(FloatRect(0.5f, 0.001f, 0.498f, 0.998f));
 
 	// background setup
+	// Can this graphics card use shaders?
+	if (!sf::Shader::isAvailable())
+	{
+		// Time for a new PC
+		m_Window.close();
+	}
+	else
+	{
+		// Load two shaders (1 vertex, 1 fragment)
+		m_RippleShader.loadFromFile("shaders/vertShader.vert", "shaders/rippleShader.frag");
+	}
 	m_BackgroundTexture = TextureHolder::GetTexture("graphics/background.png");
 	m_BackgroundSprite.setTexture(m_BackgroundTexture);
 
