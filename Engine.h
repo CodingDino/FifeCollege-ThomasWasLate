@@ -6,6 +6,7 @@
 #include "Bob.h"
 #include "LevelManager.h"
 #include "SoundManager.h"
+#include "HUD.h"
 
 // SARAH'S NOTE: AVOID! Don't use "using" in .h files 
 //     - it pollutes the global namespace across your files!
@@ -31,6 +32,11 @@ private:
 	// A class to play sounds
 	// SH: DON'T USE SINGLE LETTER NAMES!
 	SoundManager m_SM;
+
+	// The HUD
+	Hud m_Hud;
+	int m_FramesSinceLastHUDUpdate = 0;
+	int m_TargetFramesPerHUDUpdate = 500;
 
 	// constants used for our levels
 	const int TILE_SIZE = 50;
