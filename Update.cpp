@@ -28,7 +28,9 @@ void Engine::update(float dtAsSeconds)
 		{
 			// New level required
 			m_NewLevelRequired = true;
-			// TODO: Play the reach goal sound
+
+			// Play the reach goal sound
+			m_SM.playReachGoal();
 		}
 
 		// Let bob and thomas jump on each other's heads
@@ -51,6 +53,32 @@ void Engine::update(float dtAsSeconds)
 			m_NewLevelRequired = true;
 		}
 	} // End if playing
+
+	// Check if a fire sound needs to be played
+	vector<Vector2f>::iterator it;
+
+	// Iterate through the vector of Vector2f objects
+	for (it = m_FireEmitters.begin(); it != m_FireEmitters.end(); ++it)
+	{
+		// Where is this emitter?
+		// Store the location in pos
+		float posX = (*it).x;
+		float posY = (*it).y;
+
+		// Is the emitter near the player?
+		// Make a 500 pixel rect around the emitter
+		FloatRect localRect(posX - 250, posY - 250, 500, 500);
+
+		// Is the player inside localRect?
+		if (m_Thomas.getPosition().intersects(localRect))
+		{
+			// Play the sound and pass the location as well
+			m_SM.playFire(Vector2f(posX, posY), m_Thomas.getCenter());
+
+			// SH: This only uses Thomas as a listener - what if Bob is the focus character?
+		}
+
+	} // end flor loop emitters
 
 	// Set the appropriate view around the appropriate character
 	if (m_SplitScreen)
