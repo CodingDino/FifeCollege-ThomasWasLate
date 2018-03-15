@@ -1,6 +1,8 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include "TextureHolder.h"
+#include "Thomas.h"
+#include "Bob.h"
 
 using namespace sf;
 // SARAH NOTE: Don't use "using" in .h files! bad!
@@ -11,6 +13,10 @@ private:
 	// The Texture Holder
 	TextureHolder th;
 	// SARAH NOTE: DON'T NAME THINGS "th" (single letter abbreviations)
+
+	// Our playable characers, thomas and his friend bob
+	Thomas m_Thomas;
+	Bob m_Bob;
 
 	const int TILE_SIZE = 50;
 	const int VERTS_IN_QUAD = 4;
