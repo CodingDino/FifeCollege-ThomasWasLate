@@ -40,13 +40,15 @@ void Engine::input()
 	// Handle input specific to Thomas
 	if (m_Thomas.handleInput())
 	{
-		// TODO: play jumping sound
+		// play jumping sound
+		m_SM.playJump();
 	}
 
 	// Handle input specific to Bob
 	if (m_Bob.handleInput())
 	{
-		// TODO: play jumping sound
+		// play jumping sound
+		m_SM.playJump();
 	}
 
 } // end input()
